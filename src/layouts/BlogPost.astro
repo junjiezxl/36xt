@@ -11,72 +11,36 @@ type Props = CollectionEntry<'blog'>['data'];
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="zh-CN">
 	<head>
 		<BaseHead title={title} description={description} />
-		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
-			}
-			.hero-image {
-				width: 100%;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
-			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-		</style>
 	</head>
 
-	<body>
+	<body class="bg-parchment text-charcoal antialiased min-h-screen flex flex-col selection:bg-brand selection:text-white">
 		<Header />
-		<main>
+		<main class="flex-grow max-w-3xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12">
 			<article>
-				<div class="hero-image">
-					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
-				</div>
-				<div class="prose">
-					<div class="title">
-						<div class="date">
-							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
-						</div>
-						<h1>{title}</h1>
-						<hr />
+				<div class="mb-10 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
+					<div class="text-charcoal/60 text-sm mb-4 tracking-widest uppercase">
+						<FormattedDate date={pubDate} />
+						{
+							updatedDate && (
+								<span class="italic ml-2">
+									(更新于 <FormattedDate date={updatedDate} />)
+								</span>
+							)
+						}
 					</div>
+					<h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-8 text-transparent bg-clip-text bg-gradient-to-r from-charcoal to-charcoal/80">
+						{title}
+					</h1>
+					{heroImage && (
+						<div class="overflow-hidden rounded-2xl shadow-insetSoft border border-subtle">
+							<Image width={1020} height={510} src={heroImage} alt="" class="w-full h-auto object-cover" />
+						</div>
+					)}
+				</div>
+				<div class="prose prose-stone prose-lg max-w-none prose-headings:text-charcoal prose-a:text-brand prose-a:no-underline hover:prose-a:underline prose-img:rounded-xl prose-img:shadow-insetSoft animate-in fade-in slide-in-from-bottom-8 duration-700 delay-150 fill-mode-both">
 					<slot />
 				</div>
 			</article>
