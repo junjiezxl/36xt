@@ -2,7 +2,7 @@
 title: '初识三十六学堂'
 description: '探索代码世界里的三十六计，发现技术之美。'
 pubDate: '2026-05-25'
-heroImage: '../../assets/blog-placeholder-about.jpg'
+heroImage: '/blog-placeholder-about.jpg'
 ---
 
 欢迎来到 **三十六学堂**！这是我使用 Astro 搭建的全新博客。
@@ -28,7 +28,7 @@ heroImage: '../../assets/blog-placeholder-about.jpg'
 
 你可以很方便地在这里插入图片，比如下面这张演示图：
 
-![技术之美](../../assets/blog-placeholder-about.jpg)
+![技术之美](/blog-placeholder-about.jpg)
 
 > 让我们一起，通晓技术之美！
 

@@ -2,7 +2,7 @@
 title: '前端架构的“空城计”：原生 Web Components 会取代框架吗？'
 description: '随着各大浏览器对 Web Components 支持的日趋完善，React、Vue 等现代框架的护城河还在吗？'
 pubDate: '2026-05-26'
-heroImage: '../../assets/blog-placeholder-1.jpg'
+heroImage: '/blog-placeholder-1.jpg'
 ---
 
 在《三十六计》中，“空城计”讲究的是虚实结合、以静制动。而在当今波谲云诡的前端江湖里，**Web Components**（原生 Web 组件）就仿佛在向现代前端框架（React, Vue, Svelte 等）摆出了一出空城计。

@@ -2,7 +2,7 @@
 title: '天下武功唯快不破：为什么前端工具链都在用 Rust 重写？'
 description: '从 SWC 到 Turbo，再到 Rolldown，Rust 正在席卷前端基建。'
 pubDate: '2026-05-25'
-heroImage: '../../assets/blog-placeholder-2.jpg'
+heroImage: '/blog-placeholder-2.jpg'
 ---
 
 俗话说：“天下武功，唯快不破”。对于前端开发者来说，曾经漫长的 `npm install` 和动辄几分钟的 `npm run build` 简直是每天都在消耗生命。

@@ -2,7 +2,7 @@
 title: 'API 设计的“连环计”：如何打造优雅且易扩展的接口？'
 description: '优秀的 API 设计就像是连环计，一环扣一环，既要解决当下的需求，又要为未来的扩展留出余地。'
 pubDate: '2026-05-24'
-heroImage: '../../assets/blog-placeholder-3.jpg'
+heroImage: '/blog-placeholder-3.jpg'
 ---
 
 在软件工程中，API（应用程序接口）就是前后端之间、服务与服务之间沟通的“契约”。一旦契约确立，随意修改就会造成极大的破坏。
