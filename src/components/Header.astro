@@ -8,10 +8,19 @@ import HeaderLink from './HeaderLink.astro';
 		<h2 class="text-xl font-bold tracking-tight text-charcoal">
 			<a href="/" class="hover:opacity-80 transition-opacity">{SITE_TITLE}</a>
 		</h2>
-		<div class="flex items-center space-x-6 text-sm font-medium text-charcoal/80">
-			<HeaderLink href="/" class="hover:text-brand transition-colors">首页</HeaderLink>
-			<HeaderLink href="/blog" class="hover:text-brand transition-colors">文章</HeaderLink>
-			<HeaderLink href="/about" class="hover:text-brand transition-colors">关于</HeaderLink>
-		</div>
+			<div class="flex items-center space-x-6 text-sm font-medium text-charcoal/80">
+				<a href="/" class="hover:text-brand transition-colors">
+					首页
+				</a>
+				<a href="/tags/Java全栈" class="hover:text-brand transition-colors text-brand font-bold">
+					Java专题
+				</a>
+				<a href="/blog" class="hover:text-brand transition-colors">
+					文章
+				</a>
+				<a href="/about" class="hover:text-brand transition-colors">
+					关于
+				</a>
+			</div>
 	</nav>
 </header>

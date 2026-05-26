@@ -1,0 +1,73 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import Header from '../../components/Header.astro';
+import { SITE_TITLE } from '../../consts';
+
+export async function getStaticPaths() {
+	const allPosts = await getCollection('blog');
+	const uniqueTags = [...new Set(allPosts.map((post) => post.data.tags || []).flat())];
+
+	return uniqueTags.map((tag) => {
+		const filteredPosts = allPosts.filter((post) => post.data.tags?.includes(tag)).sort(
+			(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+		);
+		return {
+			params: { tag },
+			props: { posts: filteredPosts },
+		};
+	});
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+---
+
+<!doctype html>
+<html lang="zh-CN">
+	<head>
+		<BaseHead title={`${tag} | ${SITE_TITLE}`} description={`关于 ${tag} 专题的所有文章`} />
+	</head>
+	<body class="bg-parchment text-charcoal antialiased min-h-screen flex flex-col selection:bg-brand selection:text-white">
+		<Header />
+		<main class="flex-grow max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12">
+			<div class="mb-12 border-b border-subtle/50 pb-8 text-center animate-in fade-in slide-in-from-top-4 duration-700">
+				<p class="text-charcoal/60 uppercase tracking-widest text-sm mb-2">专题</p>
+				<h1 class="text-4xl md:text-5xl font-bold tracking-tight text-charcoal">
+					# {tag}
+				</h1>
+			</div>
+			<section>
+				<ul class="grid grid-cols-1 md:grid-cols-2 gap-8">
+					{
+						posts.map((post) => (
+							<li class="group">
+								<a href={`/blog/${post.id}/`} class="block transition-transform duration-300 hover:-translate-y-1">
+									{post.data.heroImage && (
+										<div class="overflow-hidden rounded-2xl shadow-insetSoft mb-4 w-full">
+											<img 
+												src={post.data.heroImage} 
+												alt={post.data.title}
+												loading="lazy"
+												class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 aspect-video"
+											/>
+										</div>
+									)}
+									<h4 class="font-bold tracking-tight text-charcoal group-hover:text-brand transition-colors text-xl mb-1">
+										{post.data.title}
+									</h4>
+									<p class="text-charcoal/60 text-sm">
+										<FormattedDate date={post.data.pubDate} />
+									</p>
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
