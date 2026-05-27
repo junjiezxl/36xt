@@ -1,0 +1,5 @@
+com\xt36\blog\entity\Article.class
+com\xt36\blog\mapper\ArticleMapper.class
+com\xt36\blog\config\CorsConfig.class
+com\xt36\blog\BlogApplication.class
+com\xt36\blog\controller\ArticleController.class
