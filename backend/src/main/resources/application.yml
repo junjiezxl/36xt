@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    # 巧妙利用 createDatabaseIfNotExist=true 自动建库
+    url: jdbc:mysql://10.0.0.2:3306/blog_db?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: Zxlm1314！@
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  # 自动执行 schema.sql 建表
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema.sql
+
+mybatis-plus:
+  configuration:
+    # 开启控制台 SQL 打印，方便本地调试
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 驼峰命名转换自动开启 (默认就是 true)
+    map-underscore-to-camel-case: true
